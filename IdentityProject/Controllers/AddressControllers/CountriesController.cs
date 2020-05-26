@@ -52,6 +52,9 @@ namespace IdentityProject.Controllers.AddressControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                country.Added_User = applicationUser;
+                country.IsActive = true;
                 country.AddedDate = DateTime.Now;
                 db.Countries.Add(country);
                 db.SaveChanges();
@@ -85,6 +88,8 @@ namespace IdentityProject.Controllers.AddressControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                country.Added_User = applicationUser;
                 country.AddedDate = DateTime.Now;
                 var userId= User.Identity.GetUserId().ToString();
                 //country.Added_User = 

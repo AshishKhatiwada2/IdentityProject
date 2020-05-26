@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Address;
+using Microsoft.AspNet.Identity;
 
 namespace IdentityProject.Controllers.AddressControllers
 {
@@ -51,6 +52,9 @@ namespace IdentityProject.Controllers.AddressControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                city.Added_User = applicationUser;
+                city.IsActive = true;
                 db.Cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,6 +87,9 @@ namespace IdentityProject.Controllers.AddressControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                city.Added_User = applicationUser;
+                city.AddedDate = DateTime.Now;
                 db.Entry(city).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
