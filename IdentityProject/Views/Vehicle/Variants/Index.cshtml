@@ -1,0 +1,504 @@
+﻿@model IEnumerable<IdentityProject.Models.Vehicle.Variant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="form-horizontal">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ex_ShowroomPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.On_Road_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engine_DisplacementCC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engine_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number_Of_Cylinder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Power)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Torque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Front_Brake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rear_Brake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fuel_Tank_Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emi_Starts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Insurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cooling_System)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valve_Per_Cylinder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Drive_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ignition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fuel_Supply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clutch_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engine_Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transmission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gear_Box)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stroke)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emission_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ABS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Console)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quick_Shifter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Additional_Features)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stepup_Seat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seat_Height_mm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maximum_Height_mm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maximum_Length_mm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Side_View_Mirror)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Side_View_Mirror_Width_mm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passenger_Footrest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chassis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Front_Suspension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rear_Suspention)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body_Graphics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Saddle_Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ground_Clearance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wheelbase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dry_Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Headlight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tail_Light)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Turn_Signal_Lamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Led_Tail_Lights)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Front_Tyre_Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rear_Tyre_Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tyre_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Front_Wheel_Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rear_Wheel_Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wheel_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Front_Brake_Diameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rear_Brake_Diameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kerb_Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Front_Track)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rear_Track)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Minimum_Turning_Radius)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number_Of_Doors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seat_Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number_Gears)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage_City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage_Highway)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Steering_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acceleration_From_0_to_100)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acceleration_From_0_to_60)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max_Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LaunchDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model_Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Popularity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_Rating)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ex_ShowroomPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.On_Road_Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Engine_DisplacementCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Engine_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_Of_Cylinder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Max_Power)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Max_Torque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Front_Brake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rear_Brake)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fuel_Tank_Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emi_Starts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Insurance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cooling_System)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valve_Per_Cylinder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Drive_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ignition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fuel_Supply)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clutch_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Engine_Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transmission)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gear_Box)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stroke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emission_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ABS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Console)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quick_Shifter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Additional_Features)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stepup_Seat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seat_Height_mm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maximum_Height_mm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maximum_Length_mm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Side_View_Mirror)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Side_View_Mirror_Width_mm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Passenger_Footrest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chassis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Front_Suspension)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rear_Suspention)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body_Graphics)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Saddle_Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ground_Clearance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wheelbase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dry_Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Headlight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tail_Light)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Turn_Signal_Lamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Led_Tail_Lights)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Front_Tyre_Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rear_Tyre_Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tyre_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Front_Wheel_Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rear_Wheel_Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wheel_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Front_Brake_Diameter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rear_Brake_Diameter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kerb_Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Front_Track)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rear_Track)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Minimum_Turning_Radius)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_Of_Doors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seat_Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_Gears)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage_City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage_Highway)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Steering_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Acceleration_From_0_to_100)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Acceleration_From_0_to_60)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Max_Speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LaunchDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model_Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Popularity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_Rating)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ShareToFacebook";
+}
+
+<h2>ShareToFacebook</h2>
+ @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Please Provide URL to upload Video.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                   <input type="text" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="upload" class="btn btn-default" />
+                    </div>
+                </div>
+               </div>
+            }
+
+
