@@ -7,13 +7,13 @@ namespace IdentityProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CheckToSeeIfPrivateFieldInModelEffectDatabase : IMigrationMetadata
+    public sealed partial class InitializeDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CheckToSeeIfPrivateFieldInModelEffectDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitializeDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005251259101_CheckToSeeIfPrivateFieldInModelEffectDatabase"; }
+            get { return "202005270659291_InitializeDatabase"; }
         }
         
         string IMigrationMetadata.Source

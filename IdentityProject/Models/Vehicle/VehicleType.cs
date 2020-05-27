@@ -10,8 +10,9 @@ namespace IdentityProject.Models.Vehicle
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime AddedDate { get; set; }
-        public List<VehicleModel> vehicleModel { get; set; }
-        public ApplicationUser Added_By { get; set; }
+       
         public bool IsActive { get; set; }
+        public List<VehicleModel> vehicleModel { get; set; }
+        public virtual ApplicationUser Added_User { get; set; }
     }
 }

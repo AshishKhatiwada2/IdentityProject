@@ -24,7 +24,7 @@ namespace IdentityProject.Models.Vehicle
         public float User_Rating { get; set; }
         public DateTime AddedDate { get; set; }
        
-        public virtual ApplicationUser Added_User {get;set;}
+        public  ApplicationUser Added_User {get;set;}
         public virtual List<Variant> Variant { get; set; }
 
 

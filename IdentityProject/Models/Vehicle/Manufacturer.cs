@@ -14,6 +14,8 @@ namespace IdentityProject.Models.Vehicle
         public string BusinessNumber { get; set; }
         public DateTime AddedDate { get; set; }
         public bool IsActive { get; set; }
-        public virtual List<VehicleType> VehicleTypes { get; set; }
+       
+        public virtual ApplicationUser Added_User { get; set; }
+        public  List<VehicleType> VehicleTypes { get; set; }
     }
 }

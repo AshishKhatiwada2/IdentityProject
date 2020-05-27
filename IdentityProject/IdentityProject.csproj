@@ -319,17 +319,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005251109104_InitializeDatabase.cs" />
-    <Compile Include="Migrations\202005251109104_InitializeDatabase.Designer.cs">
-      <DependentUpon>202005251109104_InitializeDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005251259101_CheckToSeeIfPrivateFieldInModelEffectDatabase.cs" />
-    <Compile Include="Migrations\202005251259101_CheckToSeeIfPrivateFieldInModelEffectDatabase.Designer.cs">
-      <DependentUpon>202005251259101_CheckToSeeIfPrivateFieldInModelEffectDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005251309432_CheckToSeeIfPrivateFieldInModelEffectDatabas1.cs" />
-    <Compile Include="Migrations\202005251309432_CheckToSeeIfPrivateFieldInModelEffectDatabas1.Designer.cs">
-      <DependentUpon>202005251309432_CheckToSeeIfPrivateFieldInModelEffectDatabas1.cs</DependentUpon>
+    <Compile Include="Migrations\202005270659291_InitializeDatabase.cs" />
+    <Compile Include="Migrations\202005270659291_InitializeDatabase.Designer.cs">
+      <DependentUpon>202005270659291_InitializeDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -504,14 +496,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005251109104_InitializeDatabase.resx">
-      <DependentUpon>202005251109104_InitializeDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005251259101_CheckToSeeIfPrivateFieldInModelEffectDatabase.resx">
-      <DependentUpon>202005251259101_CheckToSeeIfPrivateFieldInModelEffectDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005251309432_CheckToSeeIfPrivateFieldInModelEffectDatabas1.resx">
-      <DependentUpon>202005251309432_CheckToSeeIfPrivateFieldInModelEffectDatabas1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005270659291_InitializeDatabase.resx">
+      <DependentUpon>202005270659291_InitializeDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Vehicle;
+using Microsoft.AspNet.Identity;
 
 namespace IdentityProject.Controllers.VehicleControllers
 {
@@ -52,6 +53,9 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                manufacturer.AddedDate = DateTime.Now;
+                //manufacturer.Added_User = applicationUser;
                 db.Manufacturers.Add(manufacturer);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
