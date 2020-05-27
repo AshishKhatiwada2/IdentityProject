@@ -54,6 +54,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
                 city.Added_User = applicationUser;
+                city.AddedDate = DateTime.Now;
                 city.IsActive = true;
                 db.Cities.Add(city);
                 db.SaveChanges();

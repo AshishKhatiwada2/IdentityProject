@@ -11,6 +11,7 @@ namespace IdentityProject.Models.Address
         public string  Name { get; set; }
         public DateTime AddedDate { get; set; }
         public bool IsActive { get; set; }
+
         public virtual ApplicationUser Added_User { get; set; }
 
         public List<Country> Countries { get; set; }
