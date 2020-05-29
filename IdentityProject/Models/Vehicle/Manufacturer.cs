@@ -16,6 +16,6 @@ namespace IdentityProject.Models.Vehicle
         public bool IsActive { get; set; }
        
         public virtual ApplicationUser Added_User { get; set; }
-        public  List<VehicleType> VehicleTypes { get; set; }
+        
     }
 }

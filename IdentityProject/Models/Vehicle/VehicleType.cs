@@ -12,7 +12,8 @@ namespace IdentityProject.Models.Vehicle
         public DateTime AddedDate { get; set; }
        
         public bool IsActive { get; set; }
-        public List<VehicleModel> vehicleModel { get; set; }
+       
+        public virtual Manufacturer Manufacturer { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Vehicle;
+using IdentityProject.ViewModels;
 
 namespace IdentityProject.Controllers.VehicleControllers
 {
@@ -19,6 +20,8 @@ namespace IdentityProject.Controllers.VehicleControllers
         // GET: VehicleTypes
         public async Task<ActionResult> Index()
         {
+            
+
             return View("~/Views/Vehicle/VehicleTypes/Index.cshtml",await db.VehicleTypes.ToListAsync());
         }
 
@@ -40,6 +43,7 @@ namespace IdentityProject.Controllers.VehicleControllers
         // GET: VehicleTypes/Create
         public ActionResult Create()
         {
+            
             return View("~/Views/Vehicle/VehicleTypes/Create.cshtml");
         }
 
@@ -52,6 +56,7 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+
                 db.VehicleTypes.Add(vehicleType);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
