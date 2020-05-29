@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Vehicle;
+using IdentityProject.ViewModels;
 
 namespace IdentityProject.Controllers.VehicleControllers
 {
@@ -38,9 +39,18 @@ namespace IdentityProject.Controllers.VehicleControllers
         }
 
         // GET: Variants/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
-            return View("~/Views/Vehicle/Variants/Create.cshtml");
+            AddVehicleViewModel addVehicleViewModel = new AddVehicleViewModel
+            {
+                ColorList = await db.Colors.ToListAsync(),
+                ManufacturerList = await db.Manufacturers.ToListAsync(),
+                VehicleTypeList = await db.VehicleTypes.ToListAsync(),
+                VehicleModelList = await db.VehicleModel.ToListAsync()
+
+            };
+            
+            return View("~/Views/Vehicle/Variants/Create.cshtml", addVehicleViewModel);
         }
 
         // POST: Variants/Create

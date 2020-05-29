@@ -28,5 +28,7 @@ namespace IdentityProject.Models
         public DbSet<VehicleType> VehicleTypes { get; set; }
 
         public System.Data.Entity.DbSet<IdentityProject.Models.Address.City> Cities { get; set; }
+
+        
     }
 }
