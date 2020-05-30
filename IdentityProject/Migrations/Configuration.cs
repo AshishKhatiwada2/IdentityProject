@@ -9,7 +9,7 @@ namespace IdentityProject.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(IdentityProject.Models.MainApplicationDBContext context)

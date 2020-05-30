@@ -58,14 +58,14 @@ namespace IdentityProject.Controllers.VehicleControllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Create([Bind(Include = "Id,Name,AddedDate,IsActive,Manufacturer")] VehicleType vehicleType)
+    public async Task<ActionResult> Create([Bind(Include = "Id,Name,AddedDate,IsActive")] VehicleType vehicleType)
     {
 
             if (ModelState.IsValid)
         {
                 ApplicationUser appuser = db.Users.Find(User.Identity.GetUserId());
-                vehicleType.Added_User = appuser;
                 vehicleType.AddedDate = DateTime.Now;
+                vehicleType.Added_User = appuser;
                 vehicleType.IsActive = true;
                 db.VehicleTypes.Add(vehicleType);
                 await db.SaveChangesAsync();
