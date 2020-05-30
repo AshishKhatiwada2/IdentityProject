@@ -14,6 +14,6 @@ namespace IdentityProject.Models.Address
 
         public virtual ApplicationUser Added_User { get; set; }
 
-        public List<Country> Countries { get; set; }
+        
     }
 }

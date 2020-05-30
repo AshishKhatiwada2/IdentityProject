@@ -12,6 +12,6 @@ namespace IdentityProject.Models.Address
         public DateTime AddedDate { get; set; }
         public bool IsActive { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
-        public List<Street> Streets { get; set; }
+        public virtual State State { get; set; }
     }
 }

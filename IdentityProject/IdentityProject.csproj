@@ -336,6 +336,10 @@
     <Compile Include="Migrations\202005290947066_FixedRelationshipIssueInVehicleModel.Designer.cs">
       <DependentUpon>202005290947066_FixedRelationshipIssueInVehicleModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005300117193_FixedAddressRelationship.cs" />
+    <Compile Include="Migrations\202005300117193_FixedAddressRelationship.Designer.cs">
+      <DependentUpon>202005300117193_FixedAddressRelationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address\City.cs" />
@@ -358,6 +362,7 @@
     <Compile Include="Models\Vehicle\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddVehicleTypeViewModel.cs" />
     <Compile Include="ViewModels\AddVehicleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -523,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005290947066_FixedRelationshipIssueInVehicleModel.resx">
       <DependentUpon>202005290947066_FixedRelationshipIssueInVehicleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005300117193_FixedAddressRelationship.resx">
+      <DependentUpon>202005300117193_FixedAddressRelationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

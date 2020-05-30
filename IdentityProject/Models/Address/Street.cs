@@ -13,7 +13,7 @@ namespace IdentityProject.Models.Address
         public DateTime AddedDate { get; set; }
         public bool IsActive { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
-
+        public virtual City City { get; set; }
         public string StreetNumber { get; set; }
         
     }

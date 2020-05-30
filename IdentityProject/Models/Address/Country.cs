@@ -12,7 +12,6 @@ namespace IdentityProject.Models.Address
         public DateTime AddedDate { get; set; }
         public bool IsActive { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
-
-        public List<State> States { get; set; }
+        public virtual Continent Continent { get; set; }
     }
 }
