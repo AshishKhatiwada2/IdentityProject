@@ -55,7 +55,8 @@ namespace IdentityProject.Controllers.VehicleControllers
             {
                 ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
                 manufacturer.AddedDate = DateTime.Now;
-                //manufacturer.Added_User = applicationUser;
+                manufacturer.Added_User = applicationUser;
+                manufacturer.IsActive = true;
                 db.Manufacturers.Add(manufacturer);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -88,6 +89,9 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                manufacturer.AddedDate = DateTime.Now;
+                manufacturer.Added_User = applicationUser;
                 db.Entry(manufacturer).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
