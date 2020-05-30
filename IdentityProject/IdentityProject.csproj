@@ -346,6 +346,7 @@
     <Compile Include="Models\Vehicle\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\Vehicle\AddVehicleTypeViewModel.cs" />
     <Compile Include="ViewModels\Vehicle\AddVehicleViewModel.cs" />
   </ItemGroup>

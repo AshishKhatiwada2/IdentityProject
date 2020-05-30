@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Address;
+using IdentityProject.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace IdentityProject.Controllers.AddressControllers
@@ -40,7 +41,11 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: Countries/Create
         public ActionResult Create()
         {
-            return View();
+            AddressViewModel addressViewModel = new AddressViewModel
+            {
+                ContinentList = db.Continents.ToList()
+            };
+            return View(addressViewModel);
         }
 
         // POST: Countries/Create
