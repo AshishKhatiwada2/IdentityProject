@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Vehicle;
+using Microsoft.AspNet.Identity;
 
 namespace IdentityProject.Controllers.VehicleControllers
 {
@@ -52,6 +53,9 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                vehicleMedia.Added_User = applicationUser;
+                vehicleMedia.IsActive = true;
                 db.VehicleMedias.Add(vehicleMedia);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -84,6 +88,8 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                vehicleMedia.Added_User = applicationUser;
                 db.Entry(vehicleMedia).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

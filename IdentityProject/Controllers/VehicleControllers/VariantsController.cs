@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using IdentityProject.Models;
 using IdentityProject.Models.Vehicle;
 using IdentityProject.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace IdentityProject.Controllers.VehicleControllers
 {
@@ -62,6 +63,10 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                variant.AddedDate = DateTime.Now;
+                variant.Added_User = applicationUser;
+                variant.IsActive = true;
                 db.Variants.Add(variant);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -94,6 +99,10 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                variant.AddedDate = DateTime.Now;
+                variant.Added_User = applicationUser;
                 db.Entry(variant).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

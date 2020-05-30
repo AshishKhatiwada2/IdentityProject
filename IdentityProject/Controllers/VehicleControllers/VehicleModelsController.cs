@@ -56,14 +56,14 @@ namespace IdentityProject.Controllers.VehicleControllers
             {
                 vehicleModel.AddedDate = DateTime.Now;
                 ApplicationUser applicationUser =db.Users.Find( User.Identity.GetUserId());
-                
+
 
                 //This Code will check if Database contains currently logged in user this may require more time to execute
                 // This code will no longer support Identity 3
                 //var currentMUser = await UserManager.FindByIdAsync(User.Identity.GetUserId());
                 //var CurrentUser = db.Users.Find(currentMUser.UserId);
                 //vehicleModel.Added_User = CurrentUser;
-
+                vehicleModel.IsActive = true;
                 vehicleModel.Added_User = applicationUser;
                 db.VehicleModel.Add(vehicleModel);
                 await db.SaveChangesAsync();
@@ -97,6 +97,9 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser applicationUser = db.Users.Find(User.Identity.GetUserId());
+                vehicleModel.AddedDate = DateTime.Now;
+                vehicleModel.Added_User = applicationUser;
                 db.Entry(vehicleModel).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
