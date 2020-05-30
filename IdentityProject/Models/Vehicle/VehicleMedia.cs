@@ -11,6 +11,7 @@ namespace IdentityProject.Models.Vehicle
         public DateTime Added_Date { get; set; }
         public string Path { get; set; }
         public virtual  VehicleModel  VehicleModel { get; set; }
+        public virtual Variant Variant { get; set; }
         public bool IsActive { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
     }

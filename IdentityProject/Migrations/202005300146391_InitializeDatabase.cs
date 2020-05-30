@@ -83,54 +83,22 @@ namespace IdentityProject.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Streets",
+                "dbo.States",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Zone = c.String(),
                         AddedDate = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
-                        StreetNumber = c.String(),
                         Added_User_Id = c.String(maxLength: 128),
-                        City_Id = c.Int(),
+                        Country_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .ForeignKey("dbo.Cities", t => t.City_Id)
+                .ForeignKey("dbo.Countries", t => t.Country_Id)
                 .Index(t => t.Added_User_Id)
-                .Index(t => t.City_Id);
-            
-            CreateTable(
-                "dbo.Colors",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        AddedDate = c.DateTime(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        ColorCode = c.String(),
-                        Added_User_Id = c.String(maxLength: 128),
-                        Variant_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .ForeignKey("dbo.Variants", t => t.Variant_Id)
-                .Index(t => t.Added_User_Id)
-                .Index(t => t.Variant_Id);
-            
-            CreateTable(
-                "dbo.Continents",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        AddedDate = c.DateTime(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        Added_User_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .Index(t => t.Added_User_Id);
+                .Index(t => t.Country_Id);
             
             CreateTable(
                 "dbo.Countries",
@@ -150,22 +118,36 @@ namespace IdentityProject.Migrations
                 .Index(t => t.Continent_Id);
             
             CreateTable(
-                "dbo.States",
+                "dbo.Continents",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
-                        Zone = c.String(),
                         AddedDate = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         Added_User_Id = c.String(maxLength: 128),
-                        Country_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .ForeignKey("dbo.Countries", t => t.Country_Id)
+                .Index(t => t.Added_User_Id);
+            
+            CreateTable(
+                "dbo.Colors",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        AddedDate = c.DateTime(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        ColorCode = c.String(),
+                        Added_User_Id = c.String(maxLength: 128),
+                        Variant_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
+                .ForeignKey("dbo.Variants", t => t.Variant_Id)
                 .Index(t => t.Added_User_Id)
-                .Index(t => t.Country_Id);
+                .Index(t => t.Variant_Id);
             
             CreateTable(
                 "dbo.EngineEmissions",
@@ -201,41 +183,102 @@ namespace IdentityProject.Migrations
                 .Index(t => t.Added_User_Id);
             
             CreateTable(
-                "dbo.VehicleTypes",
+                "dbo.AspNetRoles",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        AddedDate = c.DateTime(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        Added_User_Id = c.String(maxLength: 128),
-                        Manufacturer_Id = c.Int(),
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .ForeignKey("dbo.Manufacturers", t => t.Manufacturer_Id)
-                .Index(t => t.Added_User_Id)
-                .Index(t => t.Manufacturer_Id);
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
-                "dbo.VehicleModels",
+                "dbo.ShippingAddresses",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        AddedDate = c.DateTime(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        city_Id = c.Int(),
+                        continent_Id = c.Int(),
+                        country_Id = c.Int(),
+                        state_Id = c.Int(),
+                        street_Id = c.Int(),
+                        User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cities", t => t.city_Id)
+                .ForeignKey("dbo.Continents", t => t.continent_Id)
+                .ForeignKey("dbo.Countries", t => t.country_Id)
+                .ForeignKey("dbo.States", t => t.state_Id)
+                .ForeignKey("dbo.Streets", t => t.street_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.city_Id)
+                .Index(t => t.continent_Id)
+                .Index(t => t.country_Id)
+                .Index(t => t.state_Id)
+                .Index(t => t.street_Id)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.Streets",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
-                        Model_Name = c.String(),
-                        Popularity = c.Single(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        User_Rating = c.Single(nullable: false),
                         AddedDate = c.DateTime(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        StreetNumber = c.String(),
                         Added_User_Id = c.String(maxLength: 128),
-                        VehicleType_Id = c.Int(),
+                        City_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .ForeignKey("dbo.VehicleTypes", t => t.VehicleType_Id)
+                .ForeignKey("dbo.Cities", t => t.City_Id)
                 .Index(t => t.Added_User_Id)
-                .Index(t => t.VehicleType_Id);
+                .Index(t => t.City_Id);
+            
+            CreateTable(
+                "dbo.UserAddresses",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        AddedDate = c.DateTime(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        city_Id = c.Int(),
+                        continent_Id = c.Int(),
+                        country_Id = c.Int(),
+                        state_Id = c.Int(),
+                        street_Id = c.Int(),
+                        User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cities", t => t.city_Id)
+                .ForeignKey("dbo.Continents", t => t.continent_Id)
+                .ForeignKey("dbo.Countries", t => t.country_Id)
+                .ForeignKey("dbo.States", t => t.state_Id)
+                .ForeignKey("dbo.Streets", t => t.street_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.city_Id)
+                .Index(t => t.continent_Id)
+                .Index(t => t.country_Id)
+                .Index(t => t.state_Id)
+                .Index(t => t.street_Id)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.UserRatings",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserComment = c.String(),
+                        Date = c.DateTime(nullable: false),
+                        ViewNumber = c.Int(nullable: false),
+                        Added_User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
+                .Index(t => t.Added_User_Id);
             
             CreateTable(
                 "dbo.Variants",
@@ -342,101 +385,70 @@ namespace IdentityProject.Migrations
                         Path = c.String(),
                         IsActive = c.Boolean(nullable: false),
                         Added_User_Id = c.String(maxLength: 128),
-                        Motorcycle_Id = c.Int(),
                         Variant_Id = c.Int(),
+                        VehicleModel_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .ForeignKey("dbo.VehicleModels", t => t.Motorcycle_Id)
                 .ForeignKey("dbo.Variants", t => t.Variant_Id)
+                .ForeignKey("dbo.VehicleModels", t => t.VehicleModel_Id)
                 .Index(t => t.Added_User_Id)
-                .Index(t => t.Motorcycle_Id)
-                .Index(t => t.Variant_Id);
+                .Index(t => t.Variant_Id)
+                .Index(t => t.VehicleModel_Id);
             
             CreateTable(
-                "dbo.UserRatings",
+                "dbo.VehicleModels",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserComment = c.String(),
-                        Date = c.DateTime(nullable: false),
-                        ViewNumber = c.Int(nullable: false),
+                        Name = c.String(),
+                        Model_Name = c.String(),
+                        Popularity = c.Single(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        User_Rating = c.Single(nullable: false),
+                        AddedDate = c.DateTime(nullable: false),
                         Added_User_Id = c.String(maxLength: 128),
+                        VehicleType_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
-                .Index(t => t.Added_User_Id);
+                .ForeignKey("dbo.VehicleTypes", t => t.VehicleType_Id)
+                .Index(t => t.Added_User_Id)
+                .Index(t => t.VehicleType_Id);
             
             CreateTable(
-                "dbo.AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
-            
-            CreateTable(
-                "dbo.ShippingAddresses",
+                "dbo.VehicleTypes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
                         AddedDate = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
-                        city_Id = c.Int(),
-                        continent_Id = c.Int(),
-                        country_Id = c.Int(),
-                        state_Id = c.Int(),
-                        street_Id = c.Int(),
-                        User_Id = c.String(maxLength: 128),
+                        Added_User_Id = c.String(maxLength: 128),
+                        Manufacturer_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cities", t => t.city_Id)
-                .ForeignKey("dbo.Continents", t => t.continent_Id)
-                .ForeignKey("dbo.Countries", t => t.country_Id)
-                .ForeignKey("dbo.States", t => t.state_Id)
-                .ForeignKey("dbo.Streets", t => t.street_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.city_Id)
-                .Index(t => t.continent_Id)
-                .Index(t => t.country_Id)
-                .Index(t => t.state_Id)
-                .Index(t => t.street_Id)
-                .Index(t => t.User_Id);
-            
-            CreateTable(
-                "dbo.UserAddresses",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        AddedDate = c.DateTime(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        city_Id = c.Int(),
-                        continent_Id = c.Int(),
-                        country_Id = c.Int(),
-                        state_Id = c.Int(),
-                        street_Id = c.Int(),
-                        User_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cities", t => t.city_Id)
-                .ForeignKey("dbo.Continents", t => t.continent_Id)
-                .ForeignKey("dbo.Countries", t => t.country_Id)
-                .ForeignKey("dbo.States", t => t.state_Id)
-                .ForeignKey("dbo.Streets", t => t.street_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.city_Id)
-                .Index(t => t.continent_Id)
-                .Index(t => t.country_Id)
-                .Index(t => t.state_Id)
-                .Index(t => t.street_Id)
-                .Index(t => t.User_Id);
+                .ForeignKey("dbo.AspNetUsers", t => t.Added_User_Id)
+                .ForeignKey("dbo.Manufacturers", t => t.Manufacturer_Id)
+                .Index(t => t.Added_User_Id)
+                .Index(t => t.Manufacturer_Id);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Variants", "VehicleModel_Id", "dbo.VehicleModels");
+            DropForeignKey("dbo.Variants", "Rating_Id", "dbo.UserRatings");
+            DropForeignKey("dbo.VehicleMedias", "VehicleModel_Id", "dbo.VehicleModels");
+            DropForeignKey("dbo.VehicleModels", "VehicleType_Id", "dbo.VehicleTypes");
+            DropForeignKey("dbo.VehicleTypes", "Manufacturer_Id", "dbo.Manufacturers");
+            DropForeignKey("dbo.VehicleTypes", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.VehicleModels", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.VehicleMedias", "Variant_Id", "dbo.Variants");
+            DropForeignKey("dbo.VehicleMedias", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Colors", "Variant_Id", "dbo.Variants");
+            DropForeignKey("dbo.Variants", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.UserRatings", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.UserAddresses", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.UserAddresses", "street_Id", "dbo.Streets");
             DropForeignKey("dbo.UserAddresses", "state_Id", "dbo.States");
@@ -445,44 +457,45 @@ namespace IdentityProject.Migrations
             DropForeignKey("dbo.UserAddresses", "city_Id", "dbo.Cities");
             DropForeignKey("dbo.ShippingAddresses", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.ShippingAddresses", "street_Id", "dbo.Streets");
+            DropForeignKey("dbo.Streets", "City_Id", "dbo.Cities");
+            DropForeignKey("dbo.Streets", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.ShippingAddresses", "state_Id", "dbo.States");
             DropForeignKey("dbo.ShippingAddresses", "country_Id", "dbo.Countries");
             DropForeignKey("dbo.ShippingAddresses", "continent_Id", "dbo.Continents");
             DropForeignKey("dbo.ShippingAddresses", "city_Id", "dbo.Cities");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.VehicleTypes", "Manufacturer_Id", "dbo.Manufacturers");
-            DropForeignKey("dbo.VehicleModels", "VehicleType_Id", "dbo.VehicleTypes");
-            DropForeignKey("dbo.Variants", "VehicleModel_Id", "dbo.VehicleModels");
-            DropForeignKey("dbo.Variants", "Rating_Id", "dbo.UserRatings");
-            DropForeignKey("dbo.UserRatings", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.VehicleMedias", "Variant_Id", "dbo.Variants");
-            DropForeignKey("dbo.VehicleMedias", "Motorcycle_Id", "dbo.VehicleModels");
-            DropForeignKey("dbo.VehicleMedias", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Colors", "Variant_Id", "dbo.Variants");
-            DropForeignKey("dbo.Variants", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.VehicleModels", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.VehicleTypes", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Manufacturers", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.EngineEmissions", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Countries", "Continent_Id", "dbo.Continents");
-            DropForeignKey("dbo.States", "Country_Id", "dbo.Countries");
-            DropForeignKey("dbo.Cities", "State_Id", "dbo.States");
-            DropForeignKey("dbo.States", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Countries", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Continents", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Colors", "Added_User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Streets", "City_Id", "dbo.Cities");
-            DropForeignKey("dbo.Streets", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Cities", "State_Id", "dbo.States");
+            DropForeignKey("dbo.States", "Country_Id", "dbo.Countries");
+            DropForeignKey("dbo.Countries", "Continent_Id", "dbo.Continents");
+            DropForeignKey("dbo.Continents", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Countries", "Added_User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.States", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Cities", "Added_User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropIndex("dbo.VehicleTypes", new[] { "Manufacturer_Id" });
+            DropIndex("dbo.VehicleTypes", new[] { "Added_User_Id" });
+            DropIndex("dbo.VehicleModels", new[] { "VehicleType_Id" });
+            DropIndex("dbo.VehicleModels", new[] { "Added_User_Id" });
+            DropIndex("dbo.VehicleMedias", new[] { "VehicleModel_Id" });
+            DropIndex("dbo.VehicleMedias", new[] { "Variant_Id" });
+            DropIndex("dbo.VehicleMedias", new[] { "Added_User_Id" });
+            DropIndex("dbo.Variants", new[] { "VehicleModel_Id" });
+            DropIndex("dbo.Variants", new[] { "Rating_Id" });
+            DropIndex("dbo.Variants", new[] { "Added_User_Id" });
+            DropIndex("dbo.UserRatings", new[] { "Added_User_Id" });
             DropIndex("dbo.UserAddresses", new[] { "User_Id" });
             DropIndex("dbo.UserAddresses", new[] { "street_Id" });
             DropIndex("dbo.UserAddresses", new[] { "state_Id" });
             DropIndex("dbo.UserAddresses", new[] { "country_Id" });
             DropIndex("dbo.UserAddresses", new[] { "continent_Id" });
             DropIndex("dbo.UserAddresses", new[] { "city_Id" });
+            DropIndex("dbo.Streets", new[] { "City_Id" });
+            DropIndex("dbo.Streets", new[] { "Added_User_Id" });
             DropIndex("dbo.ShippingAddresses", new[] { "User_Id" });
             DropIndex("dbo.ShippingAddresses", new[] { "street_Id" });
             DropIndex("dbo.ShippingAddresses", new[] { "state_Id" });
@@ -490,28 +503,15 @@ namespace IdentityProject.Migrations
             DropIndex("dbo.ShippingAddresses", new[] { "continent_Id" });
             DropIndex("dbo.ShippingAddresses", new[] { "city_Id" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.UserRatings", new[] { "Added_User_Id" });
-            DropIndex("dbo.VehicleMedias", new[] { "Variant_Id" });
-            DropIndex("dbo.VehicleMedias", new[] { "Motorcycle_Id" });
-            DropIndex("dbo.VehicleMedias", new[] { "Added_User_Id" });
-            DropIndex("dbo.Variants", new[] { "VehicleModel_Id" });
-            DropIndex("dbo.Variants", new[] { "Rating_Id" });
-            DropIndex("dbo.Variants", new[] { "Added_User_Id" });
-            DropIndex("dbo.VehicleModels", new[] { "VehicleType_Id" });
-            DropIndex("dbo.VehicleModels", new[] { "Added_User_Id" });
-            DropIndex("dbo.VehicleTypes", new[] { "Manufacturer_Id" });
-            DropIndex("dbo.VehicleTypes", new[] { "Added_User_Id" });
             DropIndex("dbo.Manufacturers", new[] { "Added_User_Id" });
             DropIndex("dbo.EngineEmissions", new[] { "Added_User_Id" });
-            DropIndex("dbo.States", new[] { "Country_Id" });
-            DropIndex("dbo.States", new[] { "Added_User_Id" });
-            DropIndex("dbo.Countries", new[] { "Continent_Id" });
-            DropIndex("dbo.Countries", new[] { "Added_User_Id" });
-            DropIndex("dbo.Continents", new[] { "Added_User_Id" });
             DropIndex("dbo.Colors", new[] { "Variant_Id" });
             DropIndex("dbo.Colors", new[] { "Added_User_Id" });
-            DropIndex("dbo.Streets", new[] { "City_Id" });
-            DropIndex("dbo.Streets", new[] { "Added_User_Id" });
+            DropIndex("dbo.Continents", new[] { "Added_User_Id" });
+            DropIndex("dbo.Countries", new[] { "Continent_Id" });
+            DropIndex("dbo.Countries", new[] { "Added_User_Id" });
+            DropIndex("dbo.States", new[] { "Country_Id" });
+            DropIndex("dbo.States", new[] { "Added_User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -519,21 +519,21 @@ namespace IdentityProject.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Cities", new[] { "State_Id" });
             DropIndex("dbo.Cities", new[] { "Added_User_Id" });
-            DropTable("dbo.UserAddresses");
-            DropTable("dbo.ShippingAddresses");
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.UserRatings");
+            DropTable("dbo.VehicleTypes");
+            DropTable("dbo.VehicleModels");
             DropTable("dbo.VehicleMedias");
             DropTable("dbo.Variants");
-            DropTable("dbo.VehicleModels");
-            DropTable("dbo.VehicleTypes");
+            DropTable("dbo.UserRatings");
+            DropTable("dbo.UserAddresses");
+            DropTable("dbo.Streets");
+            DropTable("dbo.ShippingAddresses");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.Manufacturers");
             DropTable("dbo.EngineEmissions");
-            DropTable("dbo.States");
-            DropTable("dbo.Countries");
-            DropTable("dbo.Continents");
             DropTable("dbo.Colors");
-            DropTable("dbo.Streets");
+            DropTable("dbo.Continents");
+            DropTable("dbo.Countries");
+            DropTable("dbo.States");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");

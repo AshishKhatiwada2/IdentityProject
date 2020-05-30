@@ -7,13 +7,13 @@ namespace IdentityProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedRelationshipManagementInVehicleType : IMigrationMetadata
+    public sealed partial class InitializeDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedRelationshipManagementInVehicleType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitializeDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005290944233_AddedRelationshipManagementInVehicleType"; }
+            get { return "202005300146391_InitializeDatabase"; }
         }
         
         string IMigrationMetadata.Source

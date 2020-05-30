@@ -320,25 +320,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005270659291_InitializeDatabase.cs" />
-    <Compile Include="Migrations\202005270659291_InitializeDatabase.Designer.cs">
-      <DependentUpon>202005270659291_InitializeDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005290944233_AddedRelationshipManagementInVehicleType.cs" />
-    <Compile Include="Migrations\202005290944233_AddedRelationshipManagementInVehicleType.Designer.cs">
-      <DependentUpon>202005290944233_AddedRelationshipManagementInVehicleType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005290945132_AddedRelationshipManagementInVehicleType1.cs" />
-    <Compile Include="Migrations\202005290945132_AddedRelationshipManagementInVehicleType1.Designer.cs">
-      <DependentUpon>202005290945132_AddedRelationshipManagementInVehicleType1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005290947066_FixedRelationshipIssueInVehicleModel.cs" />
-    <Compile Include="Migrations\202005290947066_FixedRelationshipIssueInVehicleModel.Designer.cs">
-      <DependentUpon>202005290947066_FixedRelationshipIssueInVehicleModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005300117193_FixedAddressRelationship.cs" />
-    <Compile Include="Migrations\202005300117193_FixedAddressRelationship.Designer.cs">
-      <DependentUpon>202005300117193_FixedAddressRelationship.cs</DependentUpon>
+    <Compile Include="Migrations\202005300146391_InitializeDatabase.cs" />
+    <Compile Include="Migrations\202005300146391_InitializeDatabase.Designer.cs">
+      <DependentUpon>202005300146391_InitializeDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -517,20 +501,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005270659291_InitializeDatabase.resx">
-      <DependentUpon>202005270659291_InitializeDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005290944233_AddedRelationshipManagementInVehicleType.resx">
-      <DependentUpon>202005290944233_AddedRelationshipManagementInVehicleType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005290945132_AddedRelationshipManagementInVehicleType1.resx">
-      <DependentUpon>202005290945132_AddedRelationshipManagementInVehicleType1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005290947066_FixedRelationshipIssueInVehicleModel.resx">
-      <DependentUpon>202005290947066_FixedRelationshipIssueInVehicleModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005300117193_FixedAddressRelationship.resx">
-      <DependentUpon>202005300117193_FixedAddressRelationship.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005300146391_InitializeDatabase.resx">
+      <DependentUpon>202005300146391_InitializeDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
