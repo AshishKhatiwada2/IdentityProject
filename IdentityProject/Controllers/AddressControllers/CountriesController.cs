@@ -20,7 +20,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: Countries
         public ActionResult Index()
         {
-            return View(db.Countries.ToList());
+            return View("~/Views/Address/Countries/Index.cshtml", db.Countries.ToList());
         }
 
         // GET: Countries/Details/5
@@ -35,7 +35,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(country);
+            return View("~/Views/Address/Countries/Details.cshtml", country);
         }
 
         // GET: Countries/Create
@@ -45,7 +45,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 ContinentList = db.Continents.ToList()
             };
-            return View(addressViewModel);
+            return View("~/Views/Address/Countries/Create.cshtml", addressViewModel);
         }
 
         // POST: Countries/Create
@@ -66,7 +66,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 return RedirectToAction("Index");
             }
 
-            return View(country);
+            return View("~/Views/Address/Countries/Create.cshtml", country);
         }
 
         // GET: Countries/Edit/5
@@ -81,7 +81,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(country);
+            return View("~/Views/Address/Countries/Edit.cshtml", country);
         }
 
         // POST: Countries/Edit/5
@@ -102,7 +102,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(country);
+            return View("~/Views/Address/Countries/Edit.cshtml", country);
         }
 
         // GET: Countries/Delete/5
@@ -117,7 +117,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(country);
+            return View("~/Views/Address/Countries/Delete.cshtml", country);
         }
 
         // POST: Countries/Delete/5

@@ -20,7 +20,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: UserAddresses
         public ActionResult Index()
         {
-            return View(db.UserAddresses.ToList());
+            return View("~/Views/Address/UserAddresses/Index.cshtml", db.UserAddresses.ToList());
         }
 
         // GET: UserAddresses/Details/5
@@ -35,7 +35,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(userAddress);
+            return View("~/Views/Address/UserAddresses/Details.cshtml", userAddress);
         }
 
         // GET: UserAddresses/Create
@@ -49,7 +49,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 CityList = db.Cities.ToList(),
                 StreetList = db.Streets.ToList()
             };
-            return View();
+            return View("~/Views/Address/UserAddresses/Create.cshtml",addressViewModel);
         }
 
         // POST: UserAddresses/Create
@@ -70,7 +70,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 return RedirectToAction("Index");
             }
 
-            return View(userAddress);
+            return View("~/Views/Address/UserAddresses/Create.cshtml", userAddress);
         }
 
         // GET: UserAddresses/Edit/5
@@ -85,7 +85,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(userAddress);
+            return View("~/Views/Address/UserAddresses/Edit.cshtml", userAddress);
         }
 
         // POST: UserAddresses/Edit/5
@@ -104,7 +104,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(userAddress);
+            return View("~/Views/Address/UserAddresses/Edit.cshtml", userAddress);
         }
 
         // GET: UserAddresses/Delete/5
@@ -119,7 +119,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(userAddress);
+            return View("~/Views/Address/UserAddresses/Delete.cshtml", userAddress);
         }
 
         // POST: UserAddresses/Delete/5

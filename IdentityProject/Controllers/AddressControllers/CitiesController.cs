@@ -20,7 +20,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: Cities
         public ActionResult Index()
         {
-            return View(db.Cities.ToList());
+            return View("~/Views/Address/Cities/Index.cshtml",db.Cities.ToList());
         }
 
         // GET: Cities/Details/5
@@ -35,7 +35,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(city);
+            return View("~/Views/Address/Cities/Details.cshtml", city);
         }
 
         // GET: Cities/Create
@@ -47,7 +47,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 CountryList = db.Countries.ToList(),
                 StateList=db.States.ToList()
             };
-            return View(addressViewModel);
+            return View("~/Views/Address/Cities/Create.cshtml", addressViewModel);
         }
 
         // POST: Cities/Create
@@ -68,7 +68,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 return RedirectToAction("Index");
             }
 
-            return View(city);
+            return View("~/Views/Address/Cities/Create.cshtml", city);
         }
 
         // GET: Cities/Edit/5
@@ -83,7 +83,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(city);
+            return View("~/Views/Address/Cities/Edit.cshtml", city);
         }
 
         // POST: Cities/Edit/5
@@ -102,7 +102,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(city);
+            return View("~/Views/Address/Cities/Edit.cshtml", city);
         }
 
         // GET: Cities/Delete/5
@@ -117,7 +117,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(city);
+            return View("~/Views/Address/Cities/Delete.cshtml", city);
         }
 
         // POST: Cities/Delete/5

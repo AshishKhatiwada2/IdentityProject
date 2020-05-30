@@ -20,7 +20,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: Streets
         public ActionResult Index()
         {
-            return View(db.Streets.ToList());
+            return View("~/Views/Address/Streets/Index.cshtml", db.Streets.ToList());
         }
 
         // GET: Streets/Details/5
@@ -35,7 +35,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(street);
+            return View("~/Views/Address/Streets/Details.cshtml", street);
         }
 
         // GET: Streets/Create
@@ -48,7 +48,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 StateList = db.States.ToList(),
                 CityList=db.Cities.ToList()
             };
-            return View(addressViewModel);
+            return View("~/Views/Address/Streets/Create.cshtml", addressViewModel);
         }
 
         // POST: Streets/Create
@@ -69,7 +69,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 return RedirectToAction("Index");
             }
 
-            return View(street);
+            return View("~/Views/Address/Streets/Create.cshtml", street);
         }
 
         // GET: Streets/Edit/5
@@ -84,7 +84,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(street);
+            return View("~/Views/Address/Streets/Edit.cshtml", street);
         }
 
         // POST: Streets/Edit/5
@@ -104,7 +104,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(street);
+            return View("~/Views/Address/Streets/Edit.cshtml", street);
         }
 
         // GET: Streets/Delete/5
@@ -119,7 +119,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(street);
+            return View("~/Views/Address/Streets/Delete.cshtml", street);
         }
 
         // POST: Streets/Delete/5

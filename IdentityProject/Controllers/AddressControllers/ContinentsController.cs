@@ -19,7 +19,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: Continents
         public ActionResult Index()
         {
-            return View(db.Continents.ToList());
+            return View("~/Views/Address/Continents/Index.cshtml", db.Continents.ToList());
         }
 
         // GET: Continents/Details/5
@@ -34,13 +34,13 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(continent);
+            return View("~/Views/Address/Continents/Details.cshtml", continent);
         }
 
         // GET: Continents/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Address/Continents/Create.cshtml");
         }
 
         // POST: Continents/Create
@@ -61,7 +61,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 return RedirectToAction("Index");
             }
 
-            return View(continent);
+            return View("~/Views/Address/Continents/Create.cshtml", continent);
         }
 
         // GET: Continents/Edit/5
@@ -76,7 +76,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(continent);
+            return View("~/Views/Address/Continents/Edit.cshtml", continent);
         }
 
         // POST: Continents/Edit/5
@@ -95,7 +95,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(continent);
+            return View("~/Views/Address/Continents/Edit.cshtml", continent);
         }
 
         // GET: Continents/Delete/5
@@ -110,7 +110,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(continent);
+            return View("~/Views/Address/Continents/Delete.cshtml", continent);
         }
 
         // POST: Continents/Delete/5

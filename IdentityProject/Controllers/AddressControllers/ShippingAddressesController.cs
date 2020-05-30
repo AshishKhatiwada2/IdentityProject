@@ -20,7 +20,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // GET: ShippingAddresses
         public ActionResult Index()
         {
-            return View(db.ShippingAddresses.ToList());
+            return View("~/Views/Address/ShippingAddresses/Index.cshtml", db.ShippingAddresses.ToList());
         }
 
         // GET: ShippingAddresses/Details/5
@@ -35,7 +35,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(shippingAddress);
+            return View("~/Views/Address/ShippingAddresses/Details.cshtml", shippingAddress);
         }
 
         // GET: ShippingAddresses/Create
@@ -49,7 +49,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 CityList = db.Cities.ToList(),
                 StreetList = db.Streets.ToList()
             };
-            return View(addressViewModel);
+            return View("~/Views/Address/ShippingAddresses/Create.cshtml", addressViewModel);
         }
 
         // POST: ShippingAddresses/Create
@@ -71,7 +71,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 return RedirectToAction("Index");
             }
 
-            return View(shippingAddress);
+            return View("~/Views/Address/ShippingAddresses/Create.cshtml", shippingAddress);
         }
 
         // GET: ShippingAddresses/Edit/5
@@ -86,7 +86,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(shippingAddress);
+            return View("~/Views/Address/ShippingAddresses/Edit.cshtml", shippingAddress);
         }
 
         // POST: ShippingAddresses/Edit/5
@@ -105,7 +105,7 @@ namespace IdentityProject.Controllers.AddressControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(shippingAddress);
+            return View("~/Views/Address/ShippingAddresses/Edit.cshtml", shippingAddress);
         }
 
         // GET: ShippingAddresses/Delete/5
@@ -120,7 +120,7 @@ namespace IdentityProject.Controllers.AddressControllers
             {
                 return HttpNotFound();
             }
-            return View(shippingAddress);
+            return View("~/Views/Address/ShippingAddresses/Delete.cshtml", shippingAddress);
         }
 
         // POST: ShippingAddresses/Delete/5
