@@ -58,21 +58,27 @@ namespace IdentityProject.Controllers.VehicleControllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Create([Bind(Include = "Id,Name,AddedDate,IsActive")] VehicleType vehicleType)
+    public async Task<ActionResult> Create( AddVehicleTypeViewModel vehicleTypeVM)
     {
-
+            VehicleType vehicle = new VehicleType();
             if (ModelState.IsValid)
         {
                 ApplicationUser appuser = db.Users.Find(User.Identity.GetUserId());
-                vehicleType.AddedDate = DateTime.Now;
-                vehicleType.Added_User = appuser;
-                vehicleType.IsActive = true;
-                db.VehicleTypes.Add(vehicleType);
+                vehicle = vehicleTypeVM.VehicleType;
+                vehicle.ManufacturerId = vehicleTypeVM.VehicleType.Manufacturer.Id;
+                vehicle.AddedDate = DateTime.Now;
+                vehicle.Added_User = appuser;
+                vehicle.IsActive = true;
+                
+                //vehicleType.AddedDate = DateTime.Now;
+                //vehicleType.Added_User = appuser;
+                //vehicleType.IsActive = true;
+                db.VehicleTypes.Add(vehicle);
                 await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        return View("~/Views/Vehicle/VehicleTypes/Create.cshtml", vehicleType);
+        return View("~/Views/Vehicle/VehicleTypes/Create.cshtml", vehicle);
     }
 
     // GET: VehicleTypes/Edit/5
@@ -101,7 +107,7 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
                 ApplicationUser appuser = db.Users.Find(User.Identity.GetUserId());
                 vehicleType.Added_User = appuser;
-                vehicleType.AddedDate = DateTime.Now;
+                //vehicleType.AddedDate = DateTime.Now;
                 db.Entry(vehicleType).State = EntityState.Modified;
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -140,6 +146,7 @@ namespace IdentityProject.Controllers.VehicleControllers
         if (disposing)
         {
             db.Dispose();
+            
         }
         base.Dispose(disposing);
     }

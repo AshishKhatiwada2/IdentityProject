@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IdentityProject.Models.Vehicle
 {
@@ -22,7 +22,8 @@ namespace IdentityProject.Models.Vehicle
         
         public bool IsActive { get; set; } 
         public float User_Rating { get; set; }
-        public DateTime AddedDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? AddedDate { get; set; }
         public virtual VehicleType VehicleType { get; set; }
         public  ApplicationUser Added_User {get;set;}
         

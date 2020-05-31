@@ -53,7 +53,7 @@ namespace IdentityProject.Controllers.AddressControllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,AddedDate,IsActive")] Country country)
+        public ActionResult Create( Country country)
         {
             if (ModelState.IsValid)
             {

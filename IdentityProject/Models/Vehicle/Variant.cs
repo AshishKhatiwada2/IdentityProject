@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -87,10 +88,14 @@ namespace IdentityProject.Models.Vehicle
 
         public  List<VehicleMedia> media { get; set; }
         public  List<Color> Colors { get; set; }
-        public DateTime LaunchDate { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime? LaunchDate { get; set; }
         public int Model_Year { get; set; }
         public float Popularity { get; set; }
-        public DateTime AddedDate { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime? AddedDate { get; set; }
         public bool IsActive { get; set; }
         public float User_Rating { get; set; }
         public virtual VehicleModel VehicleModel { get; set; }

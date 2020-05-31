@@ -324,6 +324,18 @@
     <Compile Include="Migrations\202005300146391_InitializeDatabase.Designer.cs">
       <DependentUpon>202005300146391_InitializeDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005301313210_setManufacturerDateTimeToNull.cs" />
+    <Compile Include="Migrations\202005301313210_setManufacturerDateTimeToNull.Designer.cs">
+      <DependentUpon>202005301313210_setManufacturerDateTimeToNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005310250534_AddedManufacturer_TO_VehicleTypes.cs" />
+    <Compile Include="Migrations\202005310250534_AddedManufacturer_TO_VehicleTypes.Designer.cs">
+      <DependentUpon>202005310250534_AddedManufacturer_TO_VehicleTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005310330417_FixedErrorDueToDateTimeIssueByAddingNullAndDateTime2.cs" />
+    <Compile Include="Migrations\202005310330417_FixedErrorDueToDateTimeIssueByAddingNullAndDateTime2.Designer.cs">
+      <DependentUpon>202005310330417_FixedErrorDueToDateTimeIssueByAddingNullAndDateTime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address\City.cs" />
@@ -504,6 +516,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005300146391_InitializeDatabase.resx">
       <DependentUpon>202005300146391_InitializeDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301313210_setManufacturerDateTimeToNull.resx">
+      <DependentUpon>202005301313210_setManufacturerDateTimeToNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005310250534_AddedManufacturer_TO_VehicleTypes.resx">
+      <DependentUpon>202005310250534_AddedManufacturer_TO_VehicleTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005310330417_FixedErrorDueToDateTimeIssueByAddingNullAndDateTime2.resx">
+      <DependentUpon>202005310330417_FixedErrorDueToDateTimeIssueByAddingNullAndDateTime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
