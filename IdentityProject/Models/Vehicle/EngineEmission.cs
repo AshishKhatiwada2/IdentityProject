@@ -16,6 +16,7 @@ namespace IdentityProject.Models.Vehicle
         public DateTime? AddedDate { get; set; }
         [Column(TypeName = "datetime2")]
         public DateTime? EffectiveDate { get; set; }
+
         public bool IsActive { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
         

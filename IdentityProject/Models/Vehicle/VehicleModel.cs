@@ -24,6 +24,9 @@ namespace IdentityProject.Models.Vehicle
         public float User_Rating { get; set; }
         [Column(TypeName = "datetime2")]
         public DateTime? AddedDate { get; set; }
+
+        public int? VehicleTypeId { get; set; }
+
         public virtual VehicleType VehicleType { get; set; }
         public  ApplicationUser Added_User {get;set;}
         

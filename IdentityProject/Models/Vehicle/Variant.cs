@@ -98,6 +98,9 @@ namespace IdentityProject.Models.Vehicle
         public DateTime? AddedDate { get; set; }
         public bool IsActive { get; set; }
         public float User_Rating { get; set; }
+
+        public int? VehicleModelId { get; set; }
+
         public virtual VehicleModel VehicleModel { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
 

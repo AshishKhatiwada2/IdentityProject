@@ -14,6 +14,7 @@ namespace IdentityProject.Models.Address
         [Column(TypeName = "datetime2")]
         public DateTime? AddedDate { get; set; }
         public bool IsActive { get; set; }
+        public int? ContinentId { get; set; }
         public virtual ApplicationUser Added_User { get; set; }
         public virtual Continent Continent { get; set; }
     }

@@ -13,6 +13,9 @@ namespace IdentityProject.Models.Vehicle
         [Column(TypeName = "datetime2")]
         public DateTime? Added_Date { get; set; }
         public string Path { get; set; }
+
+        public int? VehicleModelId { get; set; }
+        public int? VariantId { get; set; }
         public virtual  VehicleModel  VehicleModel { get; set; }
         public virtual Variant Variant { get; set; }
         public bool IsActive { get; set; }

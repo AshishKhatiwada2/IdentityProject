@@ -7,13 +7,13 @@ namespace IdentityProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class setManufacturerDateTimeToNull : IMigrationMetadata
+    public sealed partial class InitializeDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(setManufacturerDateTimeToNull));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitializeDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005301313210_setManufacturerDateTimeToNull"; }
+            get { return "202005310347035_InitializeDatabase"; }
         }
         
         string IMigrationMetadata.Source

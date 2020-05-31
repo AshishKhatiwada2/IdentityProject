@@ -10,6 +10,12 @@ namespace IdentityProject.Models.Address
     public class UserAddress
     {
         public int Id { get; set; }
+        public int? ContinentId { get; set; }
+        public int? CountryId { get; set; }
+        public int? StateId { get; set; }
+        public int? CityId { get; set; }
+        public int? StreetId { get; set; }
+
         public virtual Continent continent { get; set; }
         public virtual Country country { get; set; }
         public virtual State state { get; set; }

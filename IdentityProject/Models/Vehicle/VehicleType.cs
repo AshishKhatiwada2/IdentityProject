@@ -18,7 +18,7 @@ namespace IdentityProject.Models.Vehicle
 
         public bool IsActive { get; set; }
         
-        public int ManufacturerId { get; set; }
+        public int? ManufacturerId { get; set; }
 
         public virtual Manufacturer Manufacturer { get; set; }
 
