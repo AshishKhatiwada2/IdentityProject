@@ -65,7 +65,7 @@ namespace IdentityProject.Controllers.VehicleControllers
         {
                 ApplicationUser appuser = db.Users.Find(User.Identity.GetUserId());
                 vehicle = vehicleTypeVM.VehicleType;
-                vehicle.ManufacturerId = vehicleTypeVM.VehicleType.Manufacturer.Id;
+                vehicle.ManufacturerId = vehicleTypeVM.VehicleType.ManufacturerId;
                 vehicle.AddedDate = DateTime.Now;
                 vehicle.Added_User = appuser;
                 vehicle.IsActive = true;

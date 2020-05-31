@@ -15,6 +15,11 @@ namespace IdentityProject.ViewModels
         public IEnumerable<Manufacturer> ManufacturerList { get; set; }
         public IEnumerable<VehicleType> VehicleTypeList { get; set; }
         public IEnumerable<VehicleModel> VehicleModelList { get; set; }
+        public Color Color { get; set; }
+        public EngineEmission EngineEmission { get; set; }
+        public Manufacturer Manufacturer { get; set; }
+        public VehicleType VehicleType { get; set; }
+        public VehicleModel VehicleModel { get; set; }
         public Variant Variant { get; set; }
         public VehicleMedia VehicleMedia { get; set; }
 
